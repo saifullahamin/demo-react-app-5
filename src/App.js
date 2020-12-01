@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div>
-      <h1>Github Repos for github.com/saifullahamin</h1>
+      <h1>Github Repositories for github.com/saifullahamin using Github Repo API</h1>
       <ul>
         {repos.map((repoObj, id) => {
           return <li key={id}>{repoObj.name}</li>;
