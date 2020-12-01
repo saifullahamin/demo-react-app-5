@@ -3,6 +3,8 @@ import "./App.css";
 
 function App() {
   const [repos, setRepos] = useState([{}]);
+  const [isFetching, setFetching] = useState(false);
+
   useEffect(() => {
     // fetch("https://api.github.com/users/saifullahamin/repos")
     // .then((response) => response.json())
@@ -15,10 +17,14 @@ function App() {
         "https://api.github.com/users/saifullahamin/repos"
       );
       const json = await response.json();
+      setFetching(true);
       setRepos(json);
     }
     fetchData();
   }, []);
+  if (!isFetching) {
+    return <h1>Loading</h1>;
+  }
 
   return (
     <div>
